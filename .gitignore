@@ -1,0 +1,8 @@
+*logs*
+*.log
+*~
+_vim/ropevim/src*
+_vim/ropevim/pylibs*
+_vim/bundle/acp*
+_vim/bundle/git*
+*.swp

@@ -1,0 +1,93 @@
+# os detection to correct for different ls implementation on osx
+platform='unknown'
+unamestr=`uname`
+if [[ "$unamestr" == 'Linux' ]]; then
+    platform='linux'
+    #Remember to uncomment this to do xilinx development in bash
+    #bash /opt/Xilinx/Vivado/2013.2/settings64.sh
+    bash /opt/Xilinx/14.7/ISE_DS/settings64.sh
+elif [[ "$unamestr" == 'Darwin' ]]; then
+   platform='osx'
+   alias usbinfo='system_profiler SPUSBDataType'
+fi
+
+# django aliases
+alias dserver='python manage.py runserver'
+alias dshell='python manage.py shell'
+
+#git aliases
+alias gss='git status --ignore-submodules=dirty'
+alias gs='git status'
+alias gc='git commit'
+alias ga='git add'
+alias gd='git diff'
+
+
+# os specific aliases
+if [[ $platform == 'linux' ]]; then
+    #linux aliases go here......
+    alias ls='ls --color=auto'
+    alias go='xdg-open'
+    # uncomment the following to do xilinx development in bash
+    source /opt/Xilinx/14.7/ISE_DS/settings64.sh
+    #export XILINX_EDK=/opt/Xilinx/13.4/ISE_DS/EDK
+    export XILINX_EDK=/opt/Xilinx/14.7/ISE_DS/EDK
+    alias updatewsgi='touch /srv/www/DBxPosed/apache/django.wsgi'
+    alias gotowork='ssh -Y -C -o CompressionLevel=9 -c arcfour,blowfish-cbc ztswdev@worklaptop.local'
+
+elif [[ $platform == 'osx' ]]; then
+    #osx aliases go here......
+    alias ls='ls -Gh'
+    alias ctags="`brew --prefix`/bin/ctags"
+    export PATH='/Applications/microchip/xc16/v1.11/bin:$PATH'
+fi
+
+alias ll='ls -alh'
+alias la='ls -Ah'
+alias l='ls -CFh'
+alias df='df -h'
+
+# grep aliases
+alias grep='grep -i --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Random aliases
+alias offlineimap-tty='offlineimap -u TTY.TTYUI'
+alias hnb-partecs='hnb $HOME/partecs/partecs-hnb.xml'
+alias rest2html-css='rst2html --embed-stylesheet --stylesheet-path=/usr/share/python-docutils/s5_html/themes/default/print.css'
+alias slrn="slrn -n"
+alias man='LC_ALL=C LANG=C man'
+alias f=finger
+alias diff='colordiff'
+alias forkit='%1&!'
+alias fp='ps aux | grep'
+alias ff='find . -iname'
+alias gitk='gitk 2>/dev/null'
+alias routes='netstat -rn -f inet'
+
+alias twitter='twitter --format ansi'
+alias tsl='tail -f /var/log/syslog'
+alias agi='sudo apt-get install'
+alias acs='sudo apt-cache search'
+alias svim='sudo vim'
+alias tailf='sudo tail -f /var/log/syslog | ccze'
+alias tpoff='killall syndaemon;syndaemon -i 10.0 -K -d'
+alias tpon='killall syndaemon;syndaemon -i 2.2 -K -d'
+alias supdate='sudo apt-get update'
+alias supgrade='sudo apt-get upgrade'
+alias goenv='source env/bin/activate'
+alias scat='sudo cat'
+alias tos='exec ~/thinkorswim/thinkorswim &'
+alias dv="dirs -v"
+alias dotodo='vim ~/todos/todo_`date +%F`.md'
+
+unset GREP_OPTIONS
+alias nextbg='feh --bg-max --randomize ~/Pictures/Wallpapers/* &'
+alias activate_hdmi='xrandr --output "HDMI1" --above "eDP1" --mode 1920x1080'
+alias reloadwifi='sudo modprobe -r iwlmvm; sudo modprobe -r iwlwifi; sudo modprobe iwlwifi 11n_disable=1 swcrypto=1;'
+alias pms='sudo pacman -S'
+alias yms='yaourt -S'
+
+# Add in server aliases
+. ~/.servers
