@@ -5,7 +5,7 @@ if [[ "$unamestr" == 'Linux' ]]; then
     platform='linux'
     #Remember to uncomment this to do xilinx development in bash
     #bash /opt/Xilinx/Vivado/2013.2/settings64.sh
-    bash /opt/Xilinx/14.7/ISE_DS/settings64.sh
+    #bash /opt/Xilinx/14.7/ISE_DS/settings64.sh
 elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='osx'
    alias usbinfo='system_profiler SPUSBDataType'
@@ -29,7 +29,7 @@ if [[ $platform == 'linux' ]]; then
     alias ls='ls --color=auto'
     alias go='xdg-open'
     # uncomment the following to do xilinx development in bash
-    source /opt/Xilinx/14.7/ISE_DS/settings64.sh
+    #source /opt/Xilinx/14.7/ISE_DS/settings64.sh
     #export XILINX_EDK=/opt/Xilinx/13.4/ISE_DS/EDK
     export XILINX_EDK=/opt/Xilinx/14.7/ISE_DS/EDK
     alias updatewsgi='touch /srv/www/DBxPosed/apache/django.wsgi'
@@ -90,4 +90,10 @@ alias pms='sudo pacman -S'
 alias yms='yaourt -S'
 
 # Add in server aliases
-. ~/.servers
+if [ -f ~/.servers ]; then
+	. ~/.servers
+else
+	#	echo "Server Alias File does not exist"
+fi
+
+alias cp='rsync -rhv --progress'

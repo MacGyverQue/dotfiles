@@ -63,6 +63,10 @@ if [ -f ~/todo ]; then
     cat ~/todo 
 fi 
 
+if [ -f ~/.commands ]; then
+    . ~/.commands
+fi 
+
 # disable gnome window stuff
 gsettings set org.gnome.desktop.background show-desktop-icons false
 unset GREP_OPTIONS

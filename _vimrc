@@ -115,6 +115,7 @@ map <leader>n :NERDTreeToggle<CR>
 
 " Ack searching
 nmap <leader>a <Esc>:Ack!
+nmap <F8> :TagbarToggle<CR>
 
 " Load the Gundo window
 map <leader>g :GundoToggle<CR>
@@ -247,14 +248,14 @@ set incsearch               " Incrementally search while typing a /regex
 
 """" Display
 if has("gui_running")
-    colorscheme molokai
+    colorscheme vividchalk
     " Remove menu bar
     set guioptions-=m
 
     " Remove toolbar
     set guioptions-=T
 else
-    colorscheme desert 
+    colorscheme vividchalk 
 endif
 
 " Paste from clipboard
