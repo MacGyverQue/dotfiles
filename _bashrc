@@ -175,8 +175,4 @@ export GIT_EDITOR="$vim"
 # Add git and svn branch names
 export PS1="$PS1\$(parse_git_branch)\$(parse_svn_branch) "
 
-export PATH=/Applications/microchip/mplabc30/v3.30c/bin:$PATH
-
-PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin # Add RVM to PATH for scripting
-
-export PATH="/Applications/microchip/xc16/v1.11/bin":$PATH
+export PATH=$PATH:$HOME/.rvm/bin:/usr/local/sbin # Add RVM to PATH for scripting

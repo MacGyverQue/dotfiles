@@ -132,6 +132,9 @@ map <leader>t :TlistToggle<CR>
 " Vimgrep Search under Cursor
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **/*.?" <Bar> cw<CR> 
 
+" Tagbar Toggle
+nmap <F8> :TagbarToggle<CR>
+
 " Quick Write
 map <leader>w :w<CR>
 
@@ -322,7 +325,7 @@ let g:pyflakes_use_quickfix = 0
 " C Specific Instructions
 " ====================================================================
 " Regenerate ctags after file write
-au BufWritePost *.c,*.cpp,*.h,*.py silent! !ctags -R &
+"au BufWritePost *.c,*.cpp,*.h,*.py silent! !ctags -R &
 " Set colorcolumn for c files
 " au FileType c setlocal colorcolumn=80
 " Override make with make! to keep quickfix from jumping to the errors

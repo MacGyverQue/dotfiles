@@ -5,7 +5,11 @@ if [[ "$unamestr" == 'Linux' ]]; then
     platform='linux'
     #Remember to uncomment this to do xilinx development in bash
     #bash /opt/Xilinx/Vivado/2013.2/settings64.sh
+<<<<<<< HEAD
     #bash /opt/Xilinx/14.7/ISE_DS/settings64.sh
+=======
+    # bash /opt/Xilinx/14.7/ISE_DS/settings64.sh
+>>>>>>> d1238e951ac09de72bcb32fa46fdb7d930afacb4
 elif [[ "$unamestr" == 'Darwin' ]]; then
    platform='osx'
    alias usbinfo='system_profiler SPUSBDataType'
@@ -31,7 +35,7 @@ if [[ $platform == 'linux' ]]; then
     # uncomment the following to do xilinx development in bash
     #source /opt/Xilinx/14.7/ISE_DS/settings64.sh
     #export XILINX_EDK=/opt/Xilinx/13.4/ISE_DS/EDK
-    export XILINX_EDK=/opt/Xilinx/14.7/ISE_DS/EDK
+    #export XILINX_EDK=/opt/Xilinx/14.7/ISE_DS/EDK
     alias updatewsgi='touch /srv/www/DBxPosed/apache/django.wsgi'
     alias gotowork='ssh -Y -C -o CompressionLevel=9 -c arcfour,blowfish-cbc ztswdev@worklaptop.local'
 
@@ -90,6 +94,7 @@ alias pms='sudo pacman -S'
 alias yms='yaourt -S'
 
 # Add in server aliases
+<<<<<<< HEAD
 if [ -f ~/.servers ]; then
 	. ~/.servers
 else
@@ -97,3 +102,9 @@ else
 fi
 
 alias cp='rsync -rhv --progress'
+=======
+. ~/.servers
+alias eagle='/home/vet-fpga/eagle-7.6.0/bin/eagle'
+alias tma='tmux att -t'
+alias cp='rsync -avz --progress'
+>>>>>>> d1238e951ac09de72bcb32fa46fdb7d930afacb4
