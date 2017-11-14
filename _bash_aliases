@@ -86,7 +86,7 @@ unset GREP_OPTIONS
 alias nextbg='feh --bg-max --randomize ~/Pictures/Wallpapers/* &'
 alias activate_hdmi='xrandr --output "HDMI1" --above "eDP1" --mode 1920x1080'
 alias reloadwifi='sudo modprobe -r iwlmvm; sudo modprobe -r iwlwifi; sudo modprobe iwlwifi 11n_disable=1 swcrypto=1;'
-alias pms='sudo pacman -S'
+alias pms='yaourt -S --noconfirm'
 alias yms='yaourt -S'
 
 # Add in server aliases
@@ -98,3 +98,5 @@ fi
 
 . ~/.servers
 alias tma='tmux att -t'
+alias pss='yaourt -Ss'
+alias lst="ls -lt --color | head -n20"
